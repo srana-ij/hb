@@ -1,0 +1,12 @@
+<footer th:fragment="footer" class="footer mt-auto" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="copyright">
+        <p class="text-center">
+            &copy; <span id="copy-year">2020</span> Copyright by
+            <a class="text-warning" href="http://www.biziitech.com/" target="_blank">Biziitech</a>
+        </p>
+    </div>
+    <script>
+        const d = new Date();
+        document.getElementById("copy-year").innerHTML = d.getFullYear();
+    </script>
+</footer>

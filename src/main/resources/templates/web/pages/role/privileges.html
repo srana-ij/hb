@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{web/fragments/layout}">
+<head>
+    <title>Role Privileges Management</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="content">
+    <div th:if="${message}" class="alert alert-dismissible fade show alert-success" role="alert">
+        <span th:text="#{${message}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div th:if="${error}" class="alert alert-dismissible fade show alert-danger" role="alert">
+        <span th:text="#{${error}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <!-- PAGE TITLE -->
+    <div class="page-title">
+        <div class="card bg-info text-white">
+            <div class="card-body">Role Privileges Management</div>
+        </div>
+    </div>
+    <!-- END PAGE TITLE -->
+    <div class="card-body">
+        <form name="rolePrivilegeForm" action="#" th:action="@{/role/save-privileges}" method="post" onsubmit="return validatePrivilegeForm()">
+            <div class="form-row">
+                <div class="col-md-12 mb-6">
+                    <label for="roleId">Role</label>
+                    <select id="roleId" name="roleId" class="form-control" onchange="reloadRolePrivilegeForm()">
+                        <option value="">Select Role</option>
+                        <option th:each="role : ${roles}"
+                                th:value="${role.id}" th:selected="${role.id == selectedRoleId}"
+                                th:text="${role.role}"/>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-6">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Menu Group</th>
+                            <th scope="col">Menu</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr th:each="menu, itemStat : ${menus}">
+                            <td scope="row" th:text="${itemStat.index + 1}"></td>
+                            <td th:text="${menu.getMenuName()}"></td>
+                            <td>
+                                <table class="table table-responsive">
+                                    <tbody>
+                                    <tr th:each="subMenu: ${menu.getSubMenus()}">
+                                        <td>
+                                            <input th:id="'c-' + ${subMenu.getSubMenuId()}" name="selectedMenuIds"
+                                                   type="checkbox" th:checked="${subMenu.isSelected()}"
+                                                   th:value="${subMenu.getSubMenuId()}">
+                                        </td>
+                                        <td>
+                                            <label th:text="${subMenu.getSubMenuName()}"></label>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-footer pt-5 border-top">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

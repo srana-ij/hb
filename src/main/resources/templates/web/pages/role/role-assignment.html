@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{web/fragments/layout}">
+<head>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            uncheckAll();
+        });
+    </script>
+    <title>Role Assignment</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="content">
+    <div th:if="${message}" class="alert alert-dismissible fade show alert-success" role="alert">
+        <span th:text="#{${message}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div th:if="${error}" class="alert alert-dismissible fade show alert-danger" role="alert">
+        <span th:text="#{${error}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <!-- PAGE TITLE -->
+    <div class="page-title">
+        <div class="card bg-info text-white">
+            <div class="card-body">Role Assignment</div>
+        </div>
+    </div>
+    <!-- END PAGE TITLE -->
+    <div class="card-body">
+        <form name="roleAssignmentForm" action="#" th:action="@{/role/save-role-assignment}" method="post"
+              onsubmit="return validateRoleAssignmentForm()">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="userId">User</label>
+                    <select class="form-control" id="userId" name="userId" th:onchange="selectRoles()">
+                        <option value="">Select User</option>
+                    <!--    <option th:each="user : ${users}"
+                                th:value="${user.id}" th:selected="${user.id == selectedUserId}"
+                                th:text="${user.username}"/> stopped by sohel rana on 23/1/20 at 11.35 AM -->
+
+                        <option th:each="user : ${users}"
+                                th:value="${user.id}" th:selected="${user.id == selectedUserId}"
+                                th:text="${user.fullName + ' ( ' + user.getUsername() + ' )'}">
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-6">
+                    <label>Roles</label>
+                    <table class="table table-responsive">
+                        <tbody>
+                        <tr th:each="role: ${roles}">
+                            <td>
+                                <input th:id="'r-' + ${role.getId()}" name="selectedRoleIds"
+                                       type="checkbox" checked="checked" th:value="${role.getId()}">
+                            </td>
+                            <td>
+                                <label th:text="${role.getRole()}"></label>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-footer pt-5 border-top">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
