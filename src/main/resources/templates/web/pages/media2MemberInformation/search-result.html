@@ -1,0 +1,37 @@
+<div th:fragment="search-result" class="row" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="col-12">
+        <table id="media2MemberInformationTable" class="table table-striped table-bordered table-sm " cellspacing="0"
+               width="100%">
+            <thead class="thead-dark">
+            <tr>
+                <th>Sl No</th>
+                <th>M Booth Office</th>
+                <th>Booth</th>
+                <th>Code</th>
+                <th>Gender</th>
+                <th>DOB</th>
+                <th>Email</th>
+
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#media2MemberInformationTable').DataTable({
+                "scrollX": true,
+                "scrollY": true,
+            });
+        });
+    </script>
+    <style type="text/css">
+        #media2MemberInformationTable th, td {
+            white-space: nowrap;
+        }
+    </style>
+</div>

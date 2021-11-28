@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{web/fragments/layout}">
+<head>
+    <title>Customer Information Search</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="content">
+    <!-- PAGE TITLE
+-->
+    <div th:if="${message}" class="alert alert-dismissible fade show alert-success" role="alert">
+        <span th:text="#{${message}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div th:if="${error}" class="alert alert-dismissible fade show alert-danger" role="alert">
+        <span th:text="#{${error}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="page-title">
+        <div class="card bg-info text-white">
+            <div class="card-body">Customer Information Search</div>
+        </div>
+    </div>
+    <form action="#" th:action="@{/customerInformation/search}" method="post" style="margin-top: 15px" id="form">
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <label for="">Customer Name</label>
+                <input type="text" class="form-control" id="customerName" name="customerName"
+                       >
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="">Contact No</label>
+                <input type="text" class="form-control" id="contactNo" name="contactNo"
+                      >
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="">Email</label>
+                <input type="text" class="form-control" id="email" name="email"
+                       >
+            </div>
+
+            <div class="col-md-3 mb-3" style="margin-top: 30px">
+                <button class="btn btn-xl btn-info" type="submit"><i class="mdi mdi-search-web"></i> Search</button>
+                <a class="btn btn-xl btn-primary" href="/customerInformation/create"><i class="mdi mdi-new-box"></i> New </a>
+            </div>
+
+        </div>
+        <hr>
+    </form>
+    <br/>
+    <div th:replace="web/pages/customerInformation/search-result::search-result"></div>
+    <script th:inline="javascript">
+
+        $(document).ready(function () {
+            $('.select2').select2({
+                width: "100%"
+            });
+        });
+
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{web/fragments/layout}">
+<head>
+    <title>Booking Information</title>
+</head>
+<body>
+<div layout:fragment="content" class="content">
+    <div th:if="${message}" class="alert alert-dismissible fade show alert-success" role="alert">
+        <span th:text="#{${message}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div th:if="${error}" class="alert alert-dismissible fade show alert-danger" role="alert">
+        <span th:text="#{${error}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="page-title">
+        <div class="card bg-info text-white">
+            <div class="card-body"><a th:href="@{/bookingInformation/search}"><img th:src="@{/images/back2.png}"
+                                                                             style="margin-right: 10px"></a>Booking Information search
+            </div>
+
+        </div>
+    </div>
+    <!-- END PAGE TITLE -->
+    <div id="home-main-content">
+            <form action="#" method="post" style="margin-top: 10px">
+                <input type="hidden" id="id" name="id">
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="">Booking Date<span style="color: red">*</span></label>
+                        <input type="date" class="form-control" id="bookingDate" name="bookingDate">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">M Booth Office<span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="mBoothOffice" name="mBoothOffice"
+                               >
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Project Name</label>
+                        <input type="text" class="form-control" id="projectName" name="projectName">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Land Name</label>
+                        <input type="text" class="form-control" id="landName" name="landName">
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="">Customer</label>
+                        <input type="text" class="form-control" id="customer" name="customer">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Total Land</label>
+                        <input type="text" class="form-control" id="totalLand" name="totalLand">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Registration</label>
+                        <input type="text" class="form-control" id="registration" name="registration">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Booked</label>
+                        <input type="text" class="form-control" id="booked" name="booked">
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="">Empty</label>
+                        <input type="text" class="form-control" id="empty" name="empty">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Booking Land Amount</label>
+                        <input type="text" class="form-control" id="BookingLandAmount" name="BookingLandAmount">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Land Unit</label>
+                        <input type="text" class="form-control" id="landUnit" name="landUnit">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Booking Land Code</label>
+                        <input type="text" class="form-control" id="bookingLandCode" name="bookingLandCode">
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="">Sell Rate</label>
+                        <input type="text" class="form-control" id="SellRate" name="SellRate">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Sell Amount</label>
+                        <input type="text" class="form-control" id="SellAmount" name="SellAmount">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Unit</label>
+                        <input type="text" class="form-control" id="unit" name="unit">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Booking Adv. Money</label>
+                        <input type="text" class="form-control" id="bookingAdvMoney" name="bookingAdvMoney">
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="">Installment Amount</label>
+                        <input type="text" class="form-control" id="installmentAmount" name="installmentAmount">
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Registration Till Date</label>
+                        <input type="date" class="form-control" id="registrationTillDate" name="registrationTillDate">
+
+
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Media 1 Person Name</label>
+                        <select th:class="'form-control'"
+                                id="media1PersonName" name="media1PersonName" >
+                            <option value="">--Select Media 1 Person Name--</option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+
+
+
+                 <div class="modal-footer">
+                     <div class="col-md- mb-3">
+                         <button class="btn btn-xl btn-success" type="submit"><i class="zmdi zmdi-save"></i> Save</button>
+                     </div>
+                 </div>
+            </form>
+    </div>
+</div>
+</body>
+</html>

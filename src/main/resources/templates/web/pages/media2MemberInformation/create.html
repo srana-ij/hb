@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{web/fragments/layout}">
+<head>
+    <title>Media 2 Member Information</title>
+</head>
+<body>
+<div layout:fragment="content" class="content">
+    <div th:if="${message}" class="alert alert-dismissible fade show alert-success" role="alert">
+        <span th:text="#{${message}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div th:if="${error}" class="alert alert-dismissible fade show alert-danger" role="alert">
+        <span th:text="#{${error}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="page-title">
+        <div class="card bg-info text-white">
+            <div class="card-body"><a th:href="@{/media2MemberInformation/search}"><img th:src="@{/images/back2.png}"
+                                                                             style="margin-right: 10px"></a>Media 2 Member Information search
+            </div>
+
+        </div>
+    </div>
+    <!-- END PAGE TITLE -->
+    <div id="home-main-content">
+            <form action="#" method="post" style="margin-top: 10px">
+                <input type="hidden" id="id" name="id">
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="">M Booth Office <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="mBoothOffice" name="mBoothOffice"
+                               >
+                    </div>
+                    <div class="col-md-3 mb-3" >
+                        <label for="">Booth<span style="color: red">*</span></label>
+                        <select th:class="'form-control'"
+                                id="booth" name="booth" >
+                            <option value="">--Select Booth--</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Member Name <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="memberName" name="memberName"
+                               >
+                    </div>
+                   <div class="col-md-3 mb-3">
+                    <label for="">Code</label>
+                    <input type="text" class="form-control" id="code" name="code"
+                    >
+                   </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-3 mb-3" >
+                        <label for="">Gender</label>
+                        <select th:class="'form-control'"
+                                id="gender" name="gender" >
+                            <option value="">--Select Gender--</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3" >
+                        <label for="">DOB</label>
+                        <select th:class="'form-control'"
+                                id="dob" name="dob" >
+                            <option value="">--Select DOB--</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Age</label>
+                        <input type="text" class="form-control" id="age" name="age"
+                        >
+                    </div>
+                    <div class="col-md-3 mb-3" >
+                        <label for="">Contact<span style="color: red">*</span></label>
+                        <select th:class="'form-control'"
+                                id="contact" name="contact" >
+                            <option value="">--Select Contact--</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="col-md-3 mb-3">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email"
+                        >
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Present Address</label>
+                        <textarea class="form-control" id="presentAddress" name="presentAddress">
+
+                        </textarea>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Present Upazila</label>
+                        <select th:class="'form-control'" id="presentUpazila" name="presentUpazila">
+                            <option value="">--Select Present Upazila--</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Present District</label>
+                        <select th:class="'form-control'" id="presentDistrict" name="presentDistrict">
+                            <option value="">--Select Present District--</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="">Permanent Address</label>
+                        <textarea class="form-control" id="permanentAddress" name="permanentAddress">
+
+                        </textarea>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="">Permanent Upazila</label>
+                        <select th:class="'form-control'" id="permanentUpazila" name="permanentUpazila">
+                            <option value="">--Select Permanent Upazila--</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="">Permanent District</label>
+                        <select th:class="'form-control'" id="permanentDistrict" name="permanentDistrict">
+                            <option value="">--Select Permanent District--</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                 <div class="modal-footer">
+                     <div class="col-md- mb-3">
+                         <button class="btn btn-xl btn-success" type="submit"><i class="zmdi zmdi-save"></i> Save</button>
+                     </div>
+                 </div>
+            </form>
+    </div>
+</div>
+</body>
+</html>

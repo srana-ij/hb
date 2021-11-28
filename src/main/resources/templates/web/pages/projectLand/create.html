@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{web/fragments/layout}">
+<head>
+    <title>Project Land</title>
+</head>
+<body>
+<div layout:fragment="content" class="content">
+    <div th:if="${message}" class="alert alert-dismissible fade show alert-success" role="alert">
+        <span th:text="#{${message}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div th:if="${error}" class="alert alert-dismissible fade show alert-danger" role="alert">
+        <span th:text="#{${error}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="page-title">
+        <div class="card bg-info text-white">
+            <div class="card-body"><a th:href="@{/projectLand/search}"><img th:src="@{/images/back2.png}"
+                                                                             style="margin-right: 10px"></a>Project Land search
+            </div>
+
+        </div>
+    </div>
+    <!-- END PAGE TITLE -->
+    <div id="home-main-content">
+            <form action="#" method="post" style="margin-top: 10px">
+                <input type="hidden" id="id" name="id">
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="">M Booth Office <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="mBoothOffice" name="mBoothOffice"
+                               >
+                    </div>
+                    <div class="col-md-3 mb-3" >
+                        <label for="">Project Name<span style="color: red">*</span></label>
+                        <select th:class="'form-control'"
+                                id="projectName" name="projectName" >
+                            <option value="">--Select project Name--</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Land Name <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="landName" name="landName"
+                        >
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Land Desc <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="landDesc" name="landDesc"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="">Unit <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="unit" name="unit"
+                        >
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Minimun Land Booking Amount <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="minLBA" name="minLBA"
+                        >
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Minimun Land Booking Money <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="minLBM" name="minLBM"
+                        >
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="">Maximum Land Booking Money <span style="color: red">*</span></label>
+                        <input type="text" class="form-control" id="maxLBM" name="mLBM"
+                        >
+                    </div>
+
+
+
+
+                </div>
+
+                 <div class="modal-footer">
+                     <div class="col-md- mb-3">
+                         <button class="btn btn-xl btn-success" type="submit"><i class="zmdi zmdi-save"></i> Save</button>
+                     </div>
+                 </div>
+            </form>
+    </div>
+</div>
+</body>
+</html>
