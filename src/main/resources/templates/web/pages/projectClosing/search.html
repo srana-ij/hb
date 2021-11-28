@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{web/fragments/layout}">
+<head>
+    <title>Project Closing Search</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="content">
+    <!-- PAGE TITLE
+-->
+    <div th:if="${message}" class="alert alert-dismissible fade show alert-success" role="alert">
+        <span th:text="#{${message}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div th:if="${error}" class="alert alert-dismissible fade show alert-danger" role="alert">
+        <span th:text="#{${error}}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="page-title">
+        <div class="card bg-info text-white">
+            <div class="card-body">Project Closing Search</div>
+        </div>
+    </div>
+    <form action="#" th:action="@{/projectClosing/search}" method="post" style="margin-top: 15px" id="form">
+        <div class="form-row">
+
+            <div class="col-md-4 mb-3">
+                <label for="">M Booth Office</label>
+                <input type="text" class="form-control" id="mBoothOffice" name="mBoothOffice"
+                      >
+            </div>
+
+            <div class="col-md-4 mb-3" >
+                <label for="">Project Name</label>
+                <input type="text" class="form-control" id="projectName" name="projectName"
+                       >
+            </div>
+
+            <div class="col-md-4 mb-3" style="margin-top: 30px" >
+                <button class="btn btn-xl btn-info" type="submit"><i class="mdi mdi-search-web"></i> Search</button>
+                <a class="btn btn-xl btn-primary" href="/projectClosing/create"><i class="mdi mdi-new-box"></i> New Project Closing </a>
+            </div>
+
+        </div>
+        <hr>
+    </form>
+    <br/>
+    <div th:replace="web/pages/projectClosing/search-result::search-result"></div>
+    <script th:inline="javascript">
+
+        $(document).ready(function () {
+            $('.select2').select2({
+                width: "100%"
+            });
+        });
+
+    </script>
+</div>
+</body>
+</html>
